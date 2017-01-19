@@ -13,7 +13,7 @@ class ftDB():
     def __init__(self, url):
         # check whether URL is delivered
         if url == '':
-            raise ValueError('No doreen URL given')
+            raise ValueError('No ftDB URL given')
             exit()
         # clean up URL
         if not url.endswith('/'):
