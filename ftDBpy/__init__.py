@@ -174,7 +174,7 @@ class ftDB():
         return_data['total'] = data['cTotalParts']
         return_data['total_unique'] = data['cTotal']
         # save first page childs
-        partslist.append(data['results'])
+        partslist.extend(data['results'])
         # if avaible get next pages
         while page < total_pages:
             # increase page count
@@ -182,8 +182,11 @@ class ftDB():
             # call server
             data = self.call_server_json(basic_call_string + '?page=' + str(page))
             # save page childs
-            partslist.append(data['results'])
+            partslist.extend(data['results'])
         # save childs in dict
         return_data['parts'] = partslist
         # return data
         return(return_data)
+
+    def img_url(self, img_id, height):
+        return(self.base_url + 'thumbnail/' + str(img_id) + '?size=' + str(height))
