@@ -29,9 +29,14 @@ class ftDB():
         # download JSON from the server
         print('Loading:' + self.base_url + call)
         # download and decode JSON
-        data = json.loads(urllib.request.urlopen(self.base_url + call, context=self.ctx).read().decode('utf-8'))
-        # return data
-        return(data)
+        try:
+            data = json.loads(urllib.request.urlopen(self.base_url + call, context=self.ctx).read().decode('utf-8'))
+            # return data
+            return(data)
+        except:
+            # error
+            # return empty dict
+            return({})
 
     def call_server_html(self, call):
         # download html
