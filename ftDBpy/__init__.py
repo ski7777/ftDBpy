@@ -97,8 +97,10 @@ class ftDB():
         if desc_html_str != None:
             # get description row data
             desc_dom = BeautifulSoup(desc_html_str, 'html.parser')
-            # save description
-            data['description'] = desc_dom.find(None, {'class': 'col-md-9'}).text.strip()
+            # check if string contains characters
+            if desc_dom.find(None, {'class': 'col-md-9'}).text.strip() != '':
+                # save description
+                data['description'] = desc_dom.find(None, {'class': 'col-md-9'}).text.strip()
         # get main image
         # find image row
         image_html_str = self.find_string_in_list(rows, '<!-- begin row for ft_icon -->')
