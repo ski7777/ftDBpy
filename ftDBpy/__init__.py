@@ -6,6 +6,7 @@ import json  # needed for json decoding
 import ssl  # needed for web request with SSl
 from bs4 import BeautifulSoup  # needed for html analysing
 
+version = 'v1.0.1'
 
 class ftDB():
     # class to abstract the main functionnalitys of the fischertechnik Datenbak
